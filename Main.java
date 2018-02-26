@@ -28,7 +28,7 @@
 package ch.idsia.scenarios;
 
 import ch.idsia.agents.Agent;
-import ch.idsia.agents.controllers.ForwardAgent;
+import ch.idsia.agents.controllers.RandomAgent;
 import ch.idsia.benchmark.tasks.BasicTask;
 import ch.idsia.tools.MarioAIOptions;
 /**
@@ -41,9 +41,13 @@ public static void main(String[] args)
 {
 //   final String argsString = "-vis on";
     final MarioAIOptions marioAIOptions = new MarioAIOptions(args);
-    final Agent agent = new ForwardAgent();
+    marioAIOptions.setGapsCount(false);
+    marioAIOptions.setTubesCount(false);
+    marioAIOptions.setBlocksCount(false);
+    marioAIOptions.setCannonsCount(false);
+    final Agent agent = new RandomAgent();
    marioAIOptions.setAgent(agent);
-    int d = 2;
+    int d = 3;
     marioAIOptions.setLevelDifficulty(d);
     marioAIOptions.setEnemies("off");
 //        final Environment environment = new MarioEnvironment();
